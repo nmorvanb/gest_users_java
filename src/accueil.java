@@ -11,8 +11,8 @@ public class accueil extends JFrame implements ActionListener {
 	private JLabel fond = new JLabel(imagef, JLabel.CENTER);
 	private JLabel userLabel = new JLabel("Nom d'utilisateur");
 	private JLabel mdpLabel = new JLabel("Mot de passe");
-	private JTextArea user = new JTextArea();
-	private JTextArea mdp = new JTextArea();
+	private JTextField user = new JTextField();
+	private JTextField mdp = new JTextField();
 	private JButton connexion = new JButton("Connexion");
 	private Font comic = new Font("Comic sans MS",Font.BOLD,18);
 	private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);
@@ -26,18 +26,33 @@ public class accueil extends JFrame implements ActionListener {
 		pan.setLayout(null);
 		
 		fond.setBounds(0,0,800,800);
-		logo.setBounds(230, 0, 318, 213);
+		
+		logo.setBounds(230, 50, 318, 213);
+		
 		userLabel.setFont(comic);
-		userLabel.setBounds(230, 300, 200, 150);
+		userLabel.setBounds(230, 300, 318, 150);
+		
 		user.setFont(comic2);
 		user.setForeground(Color.red);
-		user.setBounds(230,400,200,25);
+		user.setBounds(230,400,318,25);
+		
 		mdpLabel.setFont(comic);
+		mdpLabel.setBounds(230, 400, 318, 150);
+		
+		mdp.setFont(comic2);
+		mdp.setForeground(Color.red);
+		mdp.setBounds(230,500,318,25);
+		
+		connexion.setFont(comic);
+		connexion.setBounds(309, 600, 159, 50);
 		
 		
 		pan.add(logo);
 		pan.add(userLabel);
 		pan.add(user);
+		pan.add(mdpLabel);
+		pan.add(mdp);
+		pan.add(connexion);
 		pan.add(fond);
 		
 		this.setContentPane(pan);

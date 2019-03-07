@@ -29,7 +29,7 @@ public class gest extends JFrame implements ActionListener{
 		logo.setBounds(0, 0, 318, 213);
 		
 		deconnexion.setFont(comic);
-		deconnexion.setBounds(700, 0, 100, 50);
+		deconnexion.setBounds(600, 0, 200, 50);
 		
 		pan.add(logo);
 		pan.add(deconnexion);

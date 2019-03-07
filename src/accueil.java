@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class accueil extends JFrame implements ActionListener {
+	
 	private JPanel pan = new JPanel();
 	private ImageIcon image = new ImageIcon("images/gsblogo.png");
 	private ImageIcon imagef = new ImageIcon("images/fond.png");
@@ -45,6 +46,7 @@ public class accueil extends JFrame implements ActionListener {
 		
 		connexion.setFont(comic);
 		connexion.setBounds(309, 600, 159, 50);
+		connexion.addActionListener(this);
 		
 		
 		pan.add(logo);
@@ -60,8 +62,11 @@ public class accueil extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Stub de la méthode généré automatiquement
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource()== connexion){
+			this.setVisible(false);
+			gest f1 = new gest();
+		}
 		
 	}
 }

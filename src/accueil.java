@@ -71,8 +71,15 @@ public class accueil extends JFrame implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
                 if (e.getSource()== btconnexion){
-                        this.setVisible(false);
+                	if(connexion.verifUtil(user.getText(), mdp.getText()) == true)
+                	{
+                		this.setVisible(false);
                         gest f1 = new gest();
+                	}
+                	else
+                	{
+                		JOptionPane.showMessageDialog(null,"Erreur");
+                	}
                 }
                 
         }

@@ -54,8 +54,10 @@ public class connexion {
 			PreparedStatement util = connect.prepareStatement("select login,mdp from visiteur where metier = 'administrateur'");
 			ResultSet res = util.executeQuery();
 			while(res.next()){
-				System.out.println(res.getString("login"));
-				System.out.println(res.getString("mdp"));
+				if(res.getString("login").equals(login) && res.getString("mdp").equals(mdp)){
+					System.out.println("ok");
+					return true;
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Bloc catch généré automatiquement

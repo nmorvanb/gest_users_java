@@ -51,7 +51,7 @@ public class connexion {
 	public static boolean verifUtil(String login, String mdp){
 
 		try {
-			PreparedStatement util = connect.prepareStatement("select login,mdp from visiteur where metier = 'administrateur");
+			PreparedStatement util = connect.prepareStatement("select login,mdp from visiteur where metier = 'administrateur'");
 			ResultSet res = util.executeQuery();
 			while(res.next()){
 				System.out.println(res.getString("login"));

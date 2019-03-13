@@ -1,5 +1,8 @@
 import javax.print.attribute.standard.JobOriginatingUserName;
 import javax.swing.*;
+
+import java.sql.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -14,11 +17,15 @@ public class accueil extends JFrame implements ActionListener {
         private JLabel mdpLabel = new JLabel("Mot de passe");
         private JTextField user = new JTextField();
         private JTextField mdp = new JTextField();
-        private JButton connexion = new JButton("Connexion");
+        private JButton btconnexion = new JButton("Connexion");
         private Font comic = new Font("Comic sans MS",Font.BOLD,18);
         private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);
+        private Connection cnx;
         
         public accueil() {
+        		
+        		cnx = connexion.getInstance();
+        	
                 this.setTitle("Accueil");
                 this.setSize(800,800);
                 this.setLocationRelativeTo(null);
@@ -44,9 +51,9 @@ public class accueil extends JFrame implements ActionListener {
                 mdp.setForeground(Color.red);
                 mdp.setBounds(230,500,318,25);
                 
-                connexion.setFont(comic);
-                connexion.setBounds(309, 600, 159, 50);
-                connexion.addActionListener(this);
+                btconnexion.setFont(comic);
+                btconnexion.setBounds(309, 600, 159, 50);
+                btconnexion.addActionListener(this);
                 
                 
                 pan.add(logo);
@@ -54,7 +61,7 @@ public class accueil extends JFrame implements ActionListener {
                 pan.add(user);
                 pan.add(mdpLabel);
                 pan.add(mdp);
-                pan.add(connexion);
+                pan.add(btconnexion);
                 pan.add(fond);
                 
                 this.setContentPane(pan);
@@ -63,8 +70,7 @@ public class accueil extends JFrame implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-                if (e.getSource()== connexion){
-                        
+                if (e.getSource()== btconnexion){
                         this.setVisible(false);
                         gest f1 = new gest();
                 }

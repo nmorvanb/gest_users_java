@@ -16,7 +16,7 @@ public class accueil extends JFrame implements ActionListener {
         private JLabel userLabel = new JLabel("Nom d'utilisateur");
         private JLabel mdpLabel = new JLabel("Mot de passe");
         private JTextField user = new JTextField();
-        private JTextField mdp = new JTextField();
+        private JPasswordField mdp = new JPasswordField();
         private JButton btconnexion = new JButton("Connexion");
         private Font comic = new Font("Comic sans MS",Font.BOLD,18);
         private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);

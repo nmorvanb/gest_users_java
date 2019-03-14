@@ -68,7 +68,8 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 this.setVisible(true);
         }
 
-        @Override
+        @SuppressWarnings("deprecation")
+		@Override
         public void actionPerformed(ActionEvent e) {
                 if (e.getSource()== btconnexion){
                 	if(connexion.verifUtil(user.getText(), mdp.getText()) == true)
@@ -78,23 +79,29 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 	}
                 	else
                 	{
+                		user.setText("");
+                		mdp.setText("");
                 		JOptionPane.showMessageDialog(null,"Erreur");
                 	}
                 }
         }
 
+		@SuppressWarnings("deprecation")
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Stub de la méthode généré automatiquement
 			 int key = e.getKeyCode();
              if (key == KeyEvent.VK_ENTER){
-             	if(connexion.verifUtil(user.getText(), mdp.getSelectedText()) == true)
+             	if(connexion.verifUtil(user.getText(), mdp.getText()) == true)
              	{
              		this.setVisible(false);
                      gest f1 = new gest();
              	}
              	else
              	{
+             		user.setText("");
+            		mdp.setText("");
+            		JOptionPane.showMessageDialog(null,"Erreur");
              		JOptionPane.showMessageDialog(null,"Erreur");
              	}
              }

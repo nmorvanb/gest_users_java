@@ -57,18 +57,18 @@ public class gest extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent e) {
                 if (e.getSource()== deconnexion)
                 {
-                        
                         this.setVisible(false);
                         accueil f1 = new accueil();
                 }
-                else
+                else if(e.getSource()== ajouter)
                 {
-                	if(e.getSource()== ajouter)
-                	{
                 		this.setVisible(false);
                 		ajouter a1= new ajouter();
-                	}
-                		
+                }
+                else if(e.getSource()== consulter)
+                {
+                	this.setVisible(false);
+            		consulter c1= new consulter();
                 }
         }
 }

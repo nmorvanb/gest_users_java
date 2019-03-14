@@ -19,11 +19,9 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
         private Font comic = new Font("Comic sans MS",Font.BOLD,18);
         private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);
         private Color couleurFond = new Color(119,170,221);
-        private Connection cnx;
+        private Connection cnx = connexion.getInstance();
         
         public accueil() {
-        		
-        		cnx = connexion.getInstance();
         	
                 this.setTitle("Accueil");
                 this.setSize(800,800);

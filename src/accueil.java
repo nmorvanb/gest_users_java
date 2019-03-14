@@ -43,6 +43,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 user.setFont(comic2);
                 user.setForeground(Color.red);
                 user.setBounds(230,400,318,25);
+                user.addKeyListener(this);
                 
                 mdpLabel.setFont(comic);
                 mdpLabel.setBounds(230, 400, 318, 150);
@@ -50,10 +51,12 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 mdp.setFont(comic2);
                 mdp.setForeground(Color.red);
                 mdp.setBounds(230,500,318,25);
+                mdp.addKeyListener(this);
                 
                 btconnexion.setFont(comic);
                 btconnexion.setBounds(309, 600, 159, 50);
                 btconnexion.addActionListener(this);
+                btconnexion.addKeyListener(this);
                 
                 
                 pan.add(logo);
@@ -90,21 +93,19 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			// TODO Stub de la méthode généré automatiquement
-			 int key = e.getKeyCode();
-             if (key == KeyEvent.VK_ENTER){
-             	if(connexion.verifUtil(user.getText(), mdp.getText()) == true)
-             	{
-             		this.setVisible(false);
-                     gest f1 = new gest();
-             	}
-             	else
-             	{
-             		user.setText("");
+			if(e.getKeyCode() == KeyEvent.VK_ENTER  ){
+				if(connexion.verifUtil(user.getText(), mdp.getText()) == true)
+            	{
+            		this.setVisible(false);
+                    gest f1 = new gest();
+            	}
+            	else
+            	{
+            		user.setText("");
             		mdp.setText("");
             		JOptionPane.showMessageDialog(null,"Erreur");
-             	}
-             }
-			
+            	}
+			}		
 		}
 
 		@Override
@@ -116,7 +117,6 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Stub de la méthode généré automatiquement
-			
 		}
 }
 

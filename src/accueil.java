@@ -10,9 +10,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
         
         private JPanel pan = new JPanel();
         private ImageIcon image = new ImageIcon("images/gsblogo.png");
-        private ImageIcon imagef = new ImageIcon("images/fond.png");
         private JLabel logo = new JLabel(image,JLabel.CENTER);
-        private JLabel fond = new JLabel(imagef, JLabel.CENTER);
         private JLabel userLabel = new JLabel("Nom d'utilisateur");
         private JLabel mdpLabel = new JLabel("Mot de passe");
         private JTextField user = new JTextField();
@@ -20,6 +18,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
         private JButton btconnexion = new JButton("Connexion");
         private Font comic = new Font("Comic sans MS",Font.BOLD,18);
         private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);
+        private Color couleurFond = new Color(119,170,221);
         private Connection cnx;
         
         public accueil() {
@@ -32,8 +31,6 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
                 pan.setLayout(null);
-                
-                fond.setBounds(0,0,800,800);
                 
                 logo.setBounds(230, 50, 318, 213);
                 
@@ -65,7 +62,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 pan.add(mdpLabel);
                 pan.add(mdp);
                 pan.add(btconnexion);
-                pan.add(fond);
+                pan.setBackground(couleurFond);
                 
                 this.setContentPane(pan);
                 this.setVisible(true);

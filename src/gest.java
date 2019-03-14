@@ -8,14 +8,13 @@ public class gest extends JFrame implements ActionListener{
 
         private JPanel pan = new JPanel();
         private ImageIcon image = new ImageIcon("images/gsblogo.png");
-        private ImageIcon imagef = new ImageIcon("images/fond.png");
         private JLabel logo = new JLabel(image,JLabel.CENTER);
-        private JLabel fond = new JLabel(imagef, JLabel.CENTER);
         private JButton deconnexion = new JButton("Deconnexion");
         private JButton modifier = new JButton("Modifier");
         private JButton consulter = new JButton("Consulter");
         private JButton ajouter = new JButton("Ajouter");
         private Font comic = new Font("Comic sans MS",Font.BOLD,18);
+        private Color couleurFond = new Color(119,170,221);
         
         public gest() {
                 this.setTitle("Gestion utilisateur");
@@ -24,8 +23,6 @@ public class gest extends JFrame implements ActionListener{
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 
                 pan.setLayout(null);
-                
-                fond.setBounds(0,0,800,800);
                 
                 logo.setBounds(0, 0, 318, 213);
                 
@@ -50,7 +47,7 @@ public class gest extends JFrame implements ActionListener{
                 pan.add(modifier);
                 pan.add(consulter);
                 pan.add(ajouter);
-                pan.add(fond);
+                pan.setBackground(couleurFond);
                 
                 this.setContentPane(pan);
                 this.setVisible(true);

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class accueil extends JFrame implements ActionListener {
+public class accueil extends JFrame implements ActionListener,KeyListener {
         
         private JPanel pan = new JPanel();
         private ImageIcon image = new ImageIcon("images/gsblogo.png");
@@ -81,7 +81,36 @@ public class accueil extends JFrame implements ActionListener {
                 		JOptionPane.showMessageDialog(null,"Erreur");
                 	}
                 }
-                
         }
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Stub de la méthode généré automatiquement
+			 int key = e.getKeyCode();
+             if (key == KeyEvent.VK_ENTER){
+             	if(connexion.verifUtil(user.getText(), mdp.getSelectedText()) == true)
+             	{
+             		this.setVisible(false);
+                     gest f1 = new gest();
+             	}
+             	else
+             	{
+             		JOptionPane.showMessageDialog(null,"Erreur");
+             	}
+             }
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Stub de la méthode généré automatiquement
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Stub de la méthode généré automatiquement
+			
+		}
 }
 

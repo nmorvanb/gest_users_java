@@ -15,7 +15,7 @@ public class main {
 		boolean oui = connexion.verifUtil("pbentot","doyw1");
 			
 		
-		accueil f1 = new accueil(); 
+		gest f1 = new gest(); 
 	}
 
 }

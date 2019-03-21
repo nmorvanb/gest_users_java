@@ -48,38 +48,38 @@ public class ajouter extends JFrame implements ActionListener{
          retour.addActionListener(this);
          
          lbId.setFont(comic);
-         lbId.setBounds(320,60,100,50);
-         txtId.setBounds(370,60,150,50);
+         lbId.setBounds(155,60,50,50);
+         txtId.setBounds(210,70,50,30);
          lbNom.setFont(comic);
-         lbNom.setBounds(0,120,100,50);
-         txtNom.setBounds(100,120,150,50);
+         lbNom.setBounds(135,120,70,50);
+         txtNom.setBounds(210,130,380,30);
          lbPrenom.setFont(comic);
-         lbPrenom.setBounds(0,180,100,50);
-         txtPrenom.setBounds(100,180,150,50);
+         lbPrenom.setBounds(102,180,120,50);
+         txtPrenom.setBounds(210,190,380,30);
          lbLogin.setFont(comic);
-         lbLogin.setBounds(0,240,100,50);
-         txtLogin.setBounds(100,240,150,50);
+         lbLogin.setBounds(118,240,100,50);
+         txtLogin.setBounds(210,250,380,30);
          lbMdp.setFont(comic);
-         lbMdp.setBounds(0,300,100,50);
-         txtMdp.setBounds(100,300,150,50);
+         lbMdp.setBounds(38,300,170,50);
+         txtMdp.setBounds(210,310,380,30);
          lbAdresse.setFont(comic);
-         lbAdresse.setBounds(0,360,100,50);
-         txtAdresse.setBounds(100,360,150,50);
+         lbAdresse.setBounds(94,360,170,50);
+         txtAdresse.setBounds(210,370,380,30);
          lbCp.setFont(comic);
-         lbCp.setBounds(0,420,100,50);
-         txtCp.setBounds(100,420,150,50);
+         lbCp.setBounds(49,420,170,50);
+         txtCp.setBounds(210,430,380,30);
          lbVille.setFont(comic);
-         lbVille.setBounds(0,480,100,50);
-         txtVille.setBounds(100,480,150,50);
+         lbVille.setBounds(125,480,100,50);
+         txtVille.setBounds(210,490,380,30);
          lbDateEmbauche.setFont(comic);
-         lbDateEmbauche.setBounds(0,540,100,50);
-         txtDateEmbauche.setBounds(100,540,150,50);
+         lbDateEmbauche.setBounds(20,540,190,50);
+         txtDateEmbauche.setBounds(210,550,380,30);
          lbMetier.setFont(comic);
-         lbMetier.setBounds(0,600,100,50);
-         txtMetier.setBounds(100,600,150,50);
+         lbMetier.setBounds(105,600,100,50);
+         txtMetier.setBounds(210,610,380,30);
          
          ajouter.setFont(comic);
-         ajouter.setBounds(0,660, 300, 50);
+         ajouter.setBounds(240,660, 300, 50);
          ajouter.addActionListener(this);
          
          pan.add(retour);
@@ -119,6 +119,10 @@ public class ajouter extends JFrame implements ActionListener{
                  gest f1 = new gest();
 		
 		 }
+		 else if(e.getSource()== ajouter)
+		 {
+			 
+		 } 
 	}
 
 }

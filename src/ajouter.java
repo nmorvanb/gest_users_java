@@ -31,6 +31,7 @@ public class ajouter extends JFrame implements ActionListener{
 	 private JLabel lbMetier = new JLabel("METIER : ");
 	 private JTextField txtMetier = new JTextField();
 	 private JButton ajouter = new JButton("Ajouter un utilisateur");
+	 private JLabel indicDate = new JLabel("Format de la date requis : aaaa-MM-jj");
 	 private Font comic = new Font("Comic sans MS",Font.BOLD,18);
 	 private Color couleurFond = new Color(119,170,221);
 	 private Connection cnx = connexion.getInstance();
@@ -76,6 +77,7 @@ public class ajouter extends JFrame implements ActionListener{
          txtVille.setBounds(210,490,380,30);
          lbDateEmbauche.setFont(comic);
          lbDateEmbauche.setBounds(20,540,190,50);
+         indicDate.setBounds(210,525,250,30);
          txtDateEmbauche.setBounds(210,550,380,30);
          lbMetier.setFont(comic);
          lbMetier.setBounds(105,600,100,50);
@@ -103,6 +105,7 @@ public class ajouter extends JFrame implements ActionListener{
          pan.add(lbVille);
          pan.add(txtVille);
          pan.add(lbDateEmbauche);
+         pan.add(indicDate);
          pan.add(txtDateEmbauche);
          pan.add(lbMetier);
          pan.add(txtMetier);

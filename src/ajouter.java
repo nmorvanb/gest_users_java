@@ -3,6 +3,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.text.ParseException;
+
 import javax.swing.*;
 
 public class ajouter extends JFrame implements ActionListener{
@@ -31,6 +33,7 @@ public class ajouter extends JFrame implements ActionListener{
 	 private JButton ajouter = new JButton("Ajouter un utilisateur");
 	 private Font comic = new Font("Comic sans MS",Font.BOLD,18);
 	 private Color couleurFond = new Color(119,170,221);
+	 private Connection cnx = connexion.getInstance();
 	 
 	 public ajouter()
 	 {
@@ -121,6 +124,13 @@ public class ajouter extends JFrame implements ActionListener{
 		 }
 		 else if(e.getSource()== ajouter)
 		 {
+			 try {
+				connexion.ajoutUtile(txtId.getText(),txtNom.getText(),txtPrenom.getText(),txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText(),txtDateEmbauche.getText(),txtMetier.getText());
+
+			} catch (ParseException e1) {
+				// TODO Bloc catch généré automatiquement
+				e1.printStackTrace();
+			}
 			 
 		 } 
 	}

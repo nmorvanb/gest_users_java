@@ -1,5 +1,8 @@
 import java.sql.*;
-
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 public class connexion {
 
 	private static String url = "jdbc:mysql://localhost/gsb_frais";
@@ -64,6 +67,21 @@ public class connexion {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	public static void ajoutUtile(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, String date, String metier) throws ParseException
+	{
+		DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Date dateValide = sourceFormat.parse(date);
+		java.sql.Date sqlDate = new java.sql.Date(dateValide.getTime());
+		try {
+			Statement req =connect.createStatement();
+			req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
+			System.out.println("Ajout réussi");
+		} catch (SQLException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

@@ -28,6 +28,8 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        mod.consultUtil();
+        
         pan.setLayout(null);
         pan.setBackground(couleurFond);
         
@@ -48,6 +50,8 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
         
         rechercher.setFont(comic2);
         rechercher.setBounds(500, 150, 150, 25);
+        rechercher.addActionListener(this);
+        search.addKeyListener(this);
         
         pan.add(retour);
         pan.add(deconnexion);
@@ -63,21 +67,28 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Stub de la méthode généré automatiquement
-		if (e.getSource()== deconnexion)
+		if (e.getSource() == deconnexion)
         {
                 this.setVisible(false);
                 accueil f1 = new accueil();
         }
-		else if (e.getSource()== retour)
+		else if (e.getSource() == retour)
         {
             this.setVisible(false);
             gest g1 = new gest();
-    }
+        }
+		else if (e.getSource() == rechercher)
+		{
+			mod.consultUtil(search.getText());
+		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Stub de la méthode généré automatiquement
+		if(e.getKeyCode() == KeyEvent.VK_ENTER  ){
+			mod.consultUtil(search.getText());
+		}
 		
 	}
 

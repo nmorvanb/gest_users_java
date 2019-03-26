@@ -1,6 +1,12 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
-
+import java.sql.*;
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 
 public class modeleJTable extends AbstractTableModel {
@@ -9,6 +15,10 @@ public class modeleJTable extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	private String[] nomColonnes;
 	private Vector<String []> lignes;
+	private static Connection connect = null;
+	private static String url = "jdbc:mysql://localhost/gsb_frais";
+	private static String user = "ts1";
+	private static String mdp = "ts1";
 
 	public modeleJTable () {
 		nomColonnes = new String[] {
@@ -17,6 +27,12 @@ public class modeleJTable extends AbstractTableModel {
 				"Nom"
 		};
 		lignes = new Vector<String []>() ;
+		try {
+			connect =  DriverManager.getConnection(url, user, mdp);
+		} catch (SQLException e) {
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -54,5 +70,45 @@ public class modeleJTable extends AbstractTableModel {
 		return nomColonnes[column];
 	}
 	
-
+	public void consultUtil(){
+		try {
+			PreparedStatement util = connect.prepareStatement("select id,nom,prenom from visiteur" );
+			ResultSet res = util.executeQuery();
+			lignes = new Vector<String[]>();
+			while(res.next()){
+				lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+			}
+			fireTableDataChanged();
+		} 
+		catch (SQLException e) 
+		{
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+	}
+	public void consultUtil(String search){
+		try {
+			PreparedStatement util = connect.prepareStatement("select id,nom,prenom from visiteur" );
+			ResultSet res = util.executeQuery();
+			lignes = new Vector<String[]>();
+			while(res.next())
+			{
+				if (res.getString("id").contains(search) == true){
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+				}
+				else if (res.getString("nom").contains(search) == true){
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+				}
+				else if (res.getString("prenom").contains(search) == true){
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+				}
+			}
+			fireTableDataChanged();                              
+		}
+		catch (SQLException e) 
+		{
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+	}
 }

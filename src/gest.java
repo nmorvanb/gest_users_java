@@ -70,5 +70,10 @@ public class gest extends JFrame implements ActionListener{
                 	this.setVisible(false);
             		consulter c1= new consulter();
                 }
+                else if(e.getSource()== modifier)
+                {
+                	this.setVisible(false);
+            		modifier m1= new modifier();
+                }
         }
 }

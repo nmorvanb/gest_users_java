@@ -2,9 +2,7 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
-import java.util.Date;
-
-import javax.swing.JOptionPane;  
+import java.util.Date;  
 public class connexion {
 
 	private static String url = "jdbc:mysql://localhost/gsb_frais";
@@ -78,9 +76,10 @@ public class connexion {
 		try {
 			Statement req =connect.createStatement();
 			req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
-			JOptionPane.showMessageDialog(null,"L'utilisateur a bien été créé");
+			System.out.println("Ajout réussi");
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erreur dans la création de l'utilisateur");
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
 		}
 		
 	}

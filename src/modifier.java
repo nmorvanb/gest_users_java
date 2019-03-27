@@ -4,25 +4,25 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-public class consulter extends JFrame implements ActionListener, KeyListener {
-	
+public class modifier extends JFrame implements ActionListener, KeyListener {
+
 	private JPanel pan = new JPanel();
     private ImageIcon image = new ImageIcon("images/gsblogo.png");
     private JLabel logo = new JLabel(image,JLabel.CENTER);
     private JButton deconnexion = new JButton("Deconnexion");
     private JButton retour = new JButton("Retour");
     private JButton rechercher = new JButton("Rechercher");
+    private JButton modifier = new JButton("Modifier");
     private JTextField search = new JTextField();
     private Font comic = new Font("Comic sans MS",Font.BOLD,18);
     private Color couleurFond = new Color(119,170,221);
     private Font comic2 = new Font("Comic sans MS",Font.BOLD,15);
-    private modeleJTableConsulter mod = new modeleJTableConsulter();
+    private modeleJTableModifier mod = new modeleJTableModifier();
     private JTable jtable = new JTable(mod);
 	private JScrollPane jscrollpane = new JScrollPane(jtable);
 	private JPanel pan2 = new JPanel();
-    
-    public consulter()
-	 {
+	
+	public modifier() {
 		this.setTitle("Gestion utilisateur");
         this.setSize(800,800);
         this.setLocationRelativeTo(null);
@@ -51,18 +51,23 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
         rechercher.setFont(comic2);
         rechercher.setBounds(500, 150, 150, 25);
         rechercher.addActionListener(this);
-        search.addKeyListener(this);
+        rechercher.addKeyListener(this);
+        
+        modifier.setFont(comic2);
+        modifier.setBounds(150, 700, 150, 50);
+        modifier.addActionListener(this);
         
         pan.add(retour);
         pan.add(deconnexion);
         pan.add(search);
         pan.add(rechercher);
+        pan.add(modifier);
         pan.add(pan2);
         
         
         this.setContentPane(pan);
         this.setVisible(true);
-	 }
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -81,15 +86,19 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
 		{
 			mod.consultUtil(search.getText());
 		}
+		else if (e.getSource() == modifier)
+		{
+			
+		}
+		
 	}
-
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Stub de la méthode généré automatiquement
 		if(e.getKeyCode() == KeyEvent.VK_ENTER  ){
 			mod.consultUtil(search.getText());
 		}
-		
 	}
 
 	@Override
@@ -103,5 +112,4 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
 		// TODO Stub de la méthode généré automatiquement
 		
 	}
-
 }

@@ -3,13 +3,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.sql.Statement;
 import java.util.Vector;
-import java.sql.*;
-import javax.swing.*;
+
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
-public class modeleJTable extends AbstractTableModel {
+public class modeleJTableModifier extends AbstractTableModel {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,7 @@ public class modeleJTable extends AbstractTableModel {
 	private static String user = "ts1";
 	private static String mdp = "ts1";
 
-	public modeleJTable () {
+	public modeleJTableModifier () {
 		nomColonnes = new String[] {
 				"Id",
 				"Prénom",
@@ -94,16 +94,27 @@ public class modeleJTable extends AbstractTableModel {
 			while(res.next())
 			{
 				if (res.getString("id").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
 				}
 				else if (res.getString("nom").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
 				}
 				else if (res.getString("prenom").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
 				}
 			}
 			fireTableDataChanged();                              
+		}
+		catch (SQLException e) 
+		{
+			// TODO Bloc catch généré automatiquement
+			e.printStackTrace();
+		}
+	}
+	public void modifUtil(String login, String mdp, String adresse ,String cp, String ville){
+		try {
+			Statement req = connect.createStatement();
+			req.execute("UPDATE INTO visiteur(login,mdp,adresse,cp,ville) VALUES('" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "')");		
 		}
 		catch (SQLException e) 
 		{

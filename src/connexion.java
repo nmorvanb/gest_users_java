@@ -73,14 +73,16 @@ public class connexion {
 		DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date dateValide = sourceFormat.parse(date);
 		java.sql.Date sqlDate = new java.sql.Date(dateValide.getTime());
-		try {
-			Statement req =connect.createStatement();
-			req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
-			System.out.println("Ajout réussi");
-		} catch (SQLException e) {
-			// TODO Bloc catch généré automatiquement
-			e.printStackTrace();
-		}	
+		
+			Statement req;
+			
+			try {
+				req = connect.createStatement();
+				req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
+			} catch (SQLException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}	
 	}
 	
 }

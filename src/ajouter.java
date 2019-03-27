@@ -129,13 +129,13 @@ public class ajouter extends JFrame implements ActionListener{
 		 {
 			 try {
 				connexion.ajoutUtile(txtId.getText(),txtNom.getText(),txtPrenom.getText(),txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText(),txtDateEmbauche.getText(),txtMetier.getText());
+				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur réussi");
 
 			} catch (ParseException e1) {
-				// TODO Bloc catch généré automatiquement
-				e1.printStackTrace();
+				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur échoué, vérifier tout les parametres ");
 			}
 			 
-		 } 
+		 }   
 	}
 
 }

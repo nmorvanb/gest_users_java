@@ -77,6 +77,7 @@ public class connexion {
 		java.sql.Date sqlDate = new java.sql.Date(dateValide.getTime());
 		
 			Statement req;
+			
 			try {
 				req = connect.createStatement();
 				req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");

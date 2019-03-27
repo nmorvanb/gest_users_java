@@ -154,10 +154,59 @@ public class ajouter extends JFrame implements ActionListener{
 		 else if(e.getSource()== ajouter)
 		 {
 			 try {
-				connexion.ajoutUtile(txtId.getText(),txtNom.getText(),txtPrenom.getText(),txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText(),txtDateEmbauche.getText(),txtMetier.getText());
-
-			} catch (ParseException e1) {
-				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur échoué, veuillez remplir tous les champs ");
+				 if(txtId.getText().equals("")){
+					 JOptionPane.showMessageDialog(null,"veuillez remplir le champs ID");
+				 }
+				 else{
+					 if(txtNom.getText().equals("")){
+						 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Nom");
+					 }
+					 else{
+						 if(txtPrenom.getText().equals("")){
+							 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Prenom");
+						 }
+						 else{
+							 if(txtLogin.getText().equals("")){
+								 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Login");
+							 }
+							 else{
+								 if(txtMdp.getText().equals("")){
+									 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Mot de passe");
+								 }
+								 else{
+									 if(txtAdresse.getText().equals("")){
+										 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Adresse");
+									 }
+									 else{
+										 if(txtCp.getText().equals("")){
+											 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Code Postal");
+										 }
+										 else{
+											 if(txtVille.getText().equals("")){
+												 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Ville");
+											 }
+											 else{
+												 if(txtDateEmbauche.getText().equals("")){
+													 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Date d'Embauche");
+												 }
+												 else{
+													 if(txtMetier.getText().equals("")){
+														 JOptionPane.showMessageDialog(null,"veuillez remplir le champs Metier");
+													 }
+													 else{
+														 connexion.ajoutUtile(txtId.getText(),txtNom.getText(),txtPrenom.getText(),txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText(),txtDateEmbauche.getText(),txtMetier.getText());
+													 }
+												 }
+											 }
+										 }
+									 }
+								 }
+							 }
+						 }
+					 }
+				 }
+				 	} catch (ParseException e1) {
+				JOptionPane.showMessageDialog(null,"Erreur de saisie");
 			}
 			 
 		 }   

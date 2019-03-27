@@ -34,8 +34,17 @@ public class ajouter extends JFrame implements ActionListener{
 	 private JLabel indicDate = new JLabel("Format de la date requis : aaaa-MM-jj");
 	 private Font comic = new Font("Comic sans MS",Font.BOLD,18);
 	 private Color couleurFond = new Color(119,170,221);
-	 private Connection cnx = connexion.getInstance();
 	 
+	 private JLabel cara1 = new JLabel("4 caractères maximum");
+	 private JLabel cara2 = new JLabel("30 caractères maximum");
+	 private JLabel cara3 = new JLabel("30 caractères maximum");
+	 private JLabel cara4 = new JLabel("20 caractères maximum");
+	 private JLabel cara5 = new JLabel("20 caractères maximum");
+	 private JLabel cara6 = new JLabel("30 caractères maximum");
+	 private JLabel cara7 = new JLabel("5 caractères maximum");
+	 private JLabel cara8 = new JLabel("30 caractères maximum");
+	 private JLabel cara9 = new JLabel("30 caractères maximum");
+
 	 public ajouter()
 	 {
 		 this.setTitle("Gestion utilisateur");
@@ -111,7 +120,24 @@ public class ajouter extends JFrame implements ActionListener{
          pan.add(txtMetier);
          pan.add(ajouter);
          
-         
+         pan.add(cara1);
+         cara1.setBounds(210,45,200,30);
+         pan.add(cara2);
+         cara2.setBounds(210,105,200,30);
+         pan.add(cara3);
+         cara3.setBounds(210,165,200,30);
+         pan.add(cara4);
+         cara4.setBounds(210,225,200,30);
+         pan.add(cara5);
+         cara5.setBounds(210,285,200,30);
+         pan.add(cara6);
+         cara6.setBounds(210,345,200,30);
+         pan.add(cara7);
+         cara7.setBounds(210,405,200,30);
+         pan.add(cara8);
+         cara8.setBounds(210,465,200,30);
+         pan.add(cara9);
+         cara9.setBounds(210,585,200,30);
          
          this.setContentPane(pan);
          this.setVisible(true);
@@ -129,10 +155,9 @@ public class ajouter extends JFrame implements ActionListener{
 		 {
 			 try {
 				connexion.ajoutUtile(txtId.getText(),txtNom.getText(),txtPrenom.getText(),txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText(),txtDateEmbauche.getText(),txtMetier.getText());
-				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur réussi");
 
 			} catch (ParseException e1) {
-				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur échoué, vérifier tout les parametres ");
+				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur échoué, veuillez remplir tous les champs ");
 			}
 			 
 		 }   

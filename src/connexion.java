@@ -75,13 +75,15 @@ public class connexion {
 		DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date dateValide = sourceFormat.parse(date);
 		java.sql.Date sqlDate = new java.sql.Date(dateValide.getTime());
-		try {
-			Statement req =connect.createStatement();
-			req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
-			JOptionPane.showMessageDialog(null,"L'utilisateur a bien été créé");
-		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erreur dans la création de l'utilisateur");
-		}
+		
+			Statement req;
+			try {
+				req = connect.createStatement();
+				req.execute("INSERT INTO visiteur(id,nom,prenom,login,mdp,adresse,cp,ville,dateEmbauche,metier) VALUES('" + id +"','" + nom + "','" + prenom + "', '" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "', '" + sqlDate + "', '" + metier + "')");
+			} catch (SQLException e) {
+				// TODO Bloc catch généré automatiquement
+				e.printStackTrace();
+			}	
 		
 	}
 	

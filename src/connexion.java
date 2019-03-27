@@ -80,8 +80,7 @@ public class connexion {
 		} catch (SQLException e) {
 			// TODO Bloc catch généré automatiquement
 			e.printStackTrace();
-		}
-		
+		}	
 	}
 	
 }

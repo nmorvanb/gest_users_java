@@ -111,26 +111,26 @@ public class modeleJTableModifier extends AbstractTableModel {
 			e.printStackTrace();
 		}
 	}
-	public void modifUtil(String id, String login, String mdp, String adresse ,String cp, String ville){
+	public static void modifUtil(String id, String login, String mdp, String adresse ,String cp, String ville){
 		try {
 			Statement req = connect.createStatement();
-			if (login != null && login != "")
+			if (!login.equals(""))
 			{
 				req.execute("UPDATE visiteur SET login = ('" + login +"') WHERE id = '"+id+"'");
 			}
-			if (mdp != null && mdp != "")
+			if (!mdp.equals(""))
 			{
 				req.execute("UPDATE visiteur SET mdp = ('" + mdp +"') WHERE id = '"+id+"'");
 			}
-			if (adresse != null && adresse != "")
+			if (!adresse.equals(""))
 			{
 				req.execute("UPDATE visiteur SET adresse = ('" + adresse +"') WHERE id = '"+id+"'");
 			}
-			if (cp != null && cp != "")
+			if (!cp.equals(""))
 			{
 				req.execute("UPDATE visiteur SET cp = ('" + cp +"') WHERE id = '"+id+"'");
 			}
-			if (ville != null && ville != "")
+			if (!ville.equals(""))
 			{
 				req.execute("UPDATE visiteur SET ville = ('" + ville +"') WHERE id = '"+id+"'");
 			}		

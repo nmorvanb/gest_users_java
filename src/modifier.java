@@ -73,8 +73,8 @@ public class modifier extends JFrame implements ActionListener, KeyListener {
 		// TODO Stub de la méthode généré automatiquement
 		if (e.getSource() == deconnexion)
         {
-                this.setVisible(false);
-                accueil f1 = new accueil();
+            this.setVisible(false);
+            accueil f1 = new accueil();
         }
 		else if (e.getSource() == retour)
         {
@@ -88,15 +88,8 @@ public class modifier extends JFrame implements ActionListener, KeyListener {
 		else if (e.getSource() == modifier)
 		{
 			String id = (String) jtable.getModel().getValueAt(jtable.getSelectedRow(), 0);
-			
-			String login = JOptionPane.showInputDialog("Login :");
-			String mdp= JOptionPane.showInputDialog("Mot de passe :");
-			String adresse= JOptionPane.showInputDialog("Adresse : ");
-			String cp = JOptionPane.showInputDialog("Code postal : ");
-			String ville = JOptionPane.showInputDialog("Ville : ");
-			
-			mod.modifUtil(id, login, mdp, adresse, cp, ville);
-			
+			this.setVisible(false);
+			formulairemodification form = new formulairemodification(id);
 		}
 		
 	}

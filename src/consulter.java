@@ -11,6 +11,7 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
     private JLabel logo = new JLabel(image,JLabel.CENTER);
     private JButton deconnexion = new JButton("Deconnexion");
     private JButton retour = new JButton("Retour");
+    private JButton consulter = new JButton("Consulter");
     private JButton rechercher = new JButton("Rechercher");
     private JTextField search = new JTextField();
     private Font comic = new Font("Comic sans MS",Font.BOLD,18);
@@ -27,6 +28,7 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
         this.setSize(800,800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
         
         mod.consultUtil();
         
@@ -53,10 +55,15 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
         rechercher.addActionListener(this);
         search.addKeyListener(this);
         
+        consulter.setFont(comic2);
+        consulter.setBounds(150, 700, 150, 50);
+        consulter.addActionListener(this);
+        
         pan.add(retour);
         pan.add(deconnexion);
         pan.add(search);
         pan.add(rechercher);
+        pan.add(consulter);
         pan.add(pan2);
         
         
@@ -80,6 +87,12 @@ public class consulter extends JFrame implements ActionListener, KeyListener {
 		else if (e.getSource() == rechercher)
 		{
 			mod.consultUtil(search.getText());
+		}
+		else if (e.getSource()==consulter)
+		{
+			String id = (String) jtable.getModel().getValueAt(jtable.getSelectedRow(), 0);
+			this.setVisible(false);
+			formulaireconsulter form = new formulaireconsulter(id);
 		}
 	}
 

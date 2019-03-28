@@ -7,7 +7,7 @@ import java.text.ParseException;
 
 import javax.swing.*;
 
-public class formulairemodification extends JFrame implements ActionListener{
+public class formulaireconsulter extends JFrame implements ActionListener{
 	
 		private static Connection connect = null;
 		private static String url = "jdbc:mysql://localhost/gsb_frais";
@@ -36,7 +36,6 @@ public class formulairemodification extends JFrame implements ActionListener{
 		 private JTextField txtDateEmbauche = new JTextField();
 		 private JLabel lbMetier = new JLabel("METIER : ");
 		 private JTextField txtMetier = new JTextField();
-		 private JButton modifier = new JButton("Modifier");
 		 private JLabel indicDate = new JLabel("Format de la date requis : aaaa-MM-jj");
 		 private Font comic = new Font("Comic sans MS",Font.BOLD,18);
 		 private Color couleurFond = new Color(119,170,221);
@@ -53,7 +52,7 @@ public class formulairemodification extends JFrame implements ActionListener{
 		 private JLabel cara9 = new JLabel("30 caractères maximum");
 
 		 @SuppressWarnings("deprecation")
-		public formulairemodification(String id)
+		public formulaireconsulter(String id)
 		 {
 			PreparedStatement util;
 			try {
@@ -112,22 +111,27 @@ public class formulairemodification extends JFrame implements ActionListener{
 	         lbLogin.setFont(comic);
 	         lbLogin.setBounds(118,240,100,50);
 	         txtLogin.setBounds(210,250,380,30);
+	         txtLogin.setEditable(false);
 	         
 	         lbMdp.setFont(comic);
 	         lbMdp.setBounds(38,300,170,50);
 	         txtMdp.setBounds(210,310,380,30);
+	         txtMdp.setEditable(false);
 	         
 	         lbAdresse.setFont(comic);
 	         lbAdresse.setBounds(94,360,170,50);
 	         txtAdresse.setBounds(210,370,380,30);
+	         txtAdresse.setEditable(false);
 	         
 	         lbCp.setFont(comic);
 	         lbCp.setBounds(49,420,170,50);
 	         txtCp.setBounds(210,430,380,30);
+	         txtCp.setEditable(false);
 	         
 	         lbVille.setFont(comic);
 	         lbVille.setBounds(125,480,100,50);
 	         txtVille.setBounds(210,490,380,30);
+	         txtVille.setEditable(false);
 	         
 	         lbDateEmbauche.setFont(comic);
 	         lbDateEmbauche.setBounds(20,540,190,50);
@@ -139,10 +143,6 @@ public class formulairemodification extends JFrame implements ActionListener{
 	         lbMetier.setBounds(105,600,100,50);
 	         txtMetier.setBounds(210,610,380,30);
 	         txtMetier.setEditable(false);
-	         
-	         modifier.setFont(comic);
-	         modifier.setBounds(240,660, 300, 50);
-	         modifier.addActionListener(this);
 	         
 	         pan.add(retour);
 	         pan.add(lbId);
@@ -166,7 +166,6 @@ public class formulairemodification extends JFrame implements ActionListener{
 	         pan.add(txtDateEmbauche);
 	         pan.add(lbMetier);
 	         pan.add(txtMetier);
-	         pan.add(modifier);
 	         
 	         pan.add(cara1);
 	         cara1.setBounds(210,45,200,30);
@@ -194,17 +193,10 @@ public class formulairemodification extends JFrame implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Stub de la méthode généré automatiquement
-			if(e.getSource()==modifier)
-			{
-				modeleJTableModifier.modifUtil(id,txtLogin.getText(),txtMdp.getText(),txtAdresse.getText(),txtCp.getText(),txtVille.getText());
-				this.setVisible(false);
-				modifier mod = new modifier();
-			}
-			else if(e.getSource()==retour)
+			if(e.getSource()==retour)
 			{
 				this.setVisible(false);
-				modifier mod = new modifier();
+				consulter cons = new consulter();
 			}
-			
 		}
 }

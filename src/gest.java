@@ -21,6 +21,7 @@ public class gest extends JFrame implements ActionListener{
                 this.setSize(800,800);
                 this.setLocationRelativeTo(null);
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.setResizable(false);
                 
                 pan.setLayout(null);
                 

@@ -29,7 +29,6 @@ public class modifier extends JFrame implements ActionListener, KeyListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         mod.consultUtil();
-        
         pan.setLayout(null);
         pan.setBackground(couleurFond);
         
@@ -88,6 +87,15 @@ public class modifier extends JFrame implements ActionListener, KeyListener {
 		}
 		else if (e.getSource() == modifier)
 		{
+			String id = (String) jtable.getModel().getValueAt(jtable.getSelectedRow(), 0);
+			
+			String login = JOptionPane.showInputDialog("Login :");
+			String mdp= JOptionPane.showInputDialog("Mot de passe :");
+			String adresse= JOptionPane.showInputDialog("Adresse : ");
+			String cp = JOptionPane.showInputDialog("Code postal : ");
+			String ville = JOptionPane.showInputDialog("Ville : ");
+			
+			mod.modifUtil(id, login, mdp, adresse, cp, ville);
 			
 		}
 		

@@ -94,13 +94,13 @@ public class modeleJTableModifier extends AbstractTableModel {
 			while(res.next())
 			{
 				if (res.getString("id").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
 				}
 				else if (res.getString("nom").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
 				}
 				else if (res.getString("prenom").contains(search) == true){
-					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom"),"modifier"});
+					lignes.add(new String[]{res.getString("id"),res.getString("nom"),res.getString("prenom")});
 				}
 			}
 			fireTableDataChanged();                              
@@ -111,10 +111,29 @@ public class modeleJTableModifier extends AbstractTableModel {
 			e.printStackTrace();
 		}
 	}
-	public void modifUtil(String login, String mdp, String adresse ,String cp, String ville){
+	public void modifUtil(String id, String login, String mdp, String adresse ,String cp, String ville){
 		try {
 			Statement req = connect.createStatement();
-			req.execute("UPDATE INTO visiteur(login,mdp,adresse,cp,ville) VALUES('" + login + "' ,'" + mdp + "', '" + adresse + "','"+ cp + "', '" + ville + "')");		
+			if (login != null && login != "")
+			{
+				req.execute("UPDATE visiteur SET login = ('" + login +"') WHERE id = '"+id+"'");
+			}
+			if (mdp != null && mdp != "")
+			{
+				req.execute("UPDATE visiteur SET mdp = ('" + mdp +"') WHERE id = '"+id+"'");
+			}
+			if (adresse != null && adresse != "")
+			{
+				req.execute("UPDATE visiteur SET adresse = ('" + adresse +"') WHERE id = '"+id+"'");
+			}
+			if (cp != null && cp != "")
+			{
+				req.execute("UPDATE visiteur SET cp = ('" + cp +"') WHERE id = '"+id+"'");
+			}
+			if (ville != null && ville != "")
+			{
+				req.execute("UPDATE visiteur SET ville = ('" + ville +"') WHERE id = '"+id+"'");
+			}		
 		}
 		catch (SQLException e) 
 		{

@@ -50,6 +50,7 @@ public class ajouter extends JFrame implements ActionListener{
 		 this.setTitle("Gestion utilisateur");
          this.setSize(800,800);
          this.setLocationRelativeTo(null);
+         this.setResizable(false);
          this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          
          pan.setLayout(null);

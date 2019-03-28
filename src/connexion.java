@@ -84,7 +84,7 @@ public class connexion {
 				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur réussi");
 			} catch (SQLException e) {
 				// TODO Bloc catch généré automatiquement
-				JOptionPane.showMessageDialog(null,"Erreur de saisie");
+				JOptionPane.showMessageDialog(null,"Erreur de saisie ou ID déja existant");
 			}	
 	}
 	

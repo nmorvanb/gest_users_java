@@ -84,7 +84,16 @@ public class connexion {
 				JOptionPane.showMessageDialog(null,"Ajout de l'utilisateur réussi");
 			} catch (SQLException e) {
 				// TODO Bloc catch généré automatiquement
-				JOptionPane.showMessageDialog(null,"Erreur de saisie ou ID déja existant");
+				
+				if(e.getErrorCode() == 1062)
+				{
+					JOptionPane.showMessageDialog(null,"L'ID est déja existant");
+				}
+				else if(e.getErrorCode() == 1406)
+				{
+					JOptionPane.showMessageDialog(null,"Erreur de saisie, l'un des champs comporte trop de caractères");
+				}
+				
 			}	
 	}
 	

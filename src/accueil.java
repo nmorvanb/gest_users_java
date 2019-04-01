@@ -80,7 +80,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
                 	{
                 		user.setText("");
                 		mdp.setText("");
-                		JOptionPane.showMessageDialog(null,"Erreur");
+                		JOptionPane.showMessageDialog(null,"Login ou Mot de passe incorrect");
                 	}
                 }
         }
@@ -99,7 +99,7 @@ public class accueil extends JFrame implements ActionListener,KeyListener {
             	{
             		user.setText("");
             		mdp.setText("");
-            		JOptionPane.showMessageDialog(null,"Erreur");
+            		JOptionPane.showMessageDialog(null,"Login ou Mot de passe incorrect");
             	}
 			}		
 		}

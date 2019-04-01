@@ -207,7 +207,8 @@ public class ajouter extends JFrame implements ActionListener{
 					 }
 				 }
 				 	} catch (ParseException e1) {
-				JOptionPane.showMessageDialog(null,"Erreur de saisie");
+				JOptionPane.showMessageDialog(null,"Erreur de saisie pour la Date");
+				
 			}
 			 
 		 }   

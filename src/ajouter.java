@@ -60,7 +60,9 @@ public class ajouter extends JFrame implements ActionListener{
          retour.setFont(comic);
          retour.setBounds(0,0,150,50);
          retour.addActionListener(this);
-         
+         /**
+     	 * Emplacement des éléments
+     	 */
          lbId.setFont(comic);
          lbId.setBounds(155,60,50,50);
          txtId.setBounds(210,70,50,30);
@@ -96,7 +98,9 @@ public class ajouter extends JFrame implements ActionListener{
          ajouter.setFont(comic);
          ajouter.setBounds(240,660, 300, 50);
          ajouter.addActionListener(this);
-         
+         /**
+     	 * Ajout de chaque élément
+     	 */
          pan.add(retour);
          pan.add(lbId);
          pan.add(txtId);
@@ -144,6 +148,9 @@ public class ajouter extends JFrame implements ActionListener{
          this.setVisible(true);
 	 }
 
+	 /**
+		 * Méthode qui verifie que tout les champs sont remplis puis appelle la methode d'ajout d'un utilisateur en placant les cahmps en parametres
+		 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		 if (e.getSource()== retour)

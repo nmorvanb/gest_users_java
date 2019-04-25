@@ -52,7 +52,9 @@ public class connexion {
 			}
 	    }
 	}
-	
+	/**
+	 * Méthode qui verifie que le login et le mot de passe sont réconnus comme admin
+	 */
 	public static boolean verifUtil(String login, String mdp){
 
 		try {
@@ -70,6 +72,9 @@ public class connexion {
 		}
 		return false;
 	}
+	/**
+	 * Méthode qui permet d'ajouter a la BDD un utilisateur en recuperant les parametres
+	 */
 	public static void ajoutUtile(String id, String nom, String prenom, String login, String mdp, String adresse, String cp, String ville, String date, String metier) throws ParseException
 	{
 		DateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd");

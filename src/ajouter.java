@@ -99,7 +99,7 @@ public class ajouter extends JFrame implements ActionListener{
          ajouter.setBounds(240,660, 300, 50);
          ajouter.addActionListener(this);
          /**
-     	 * Ajout de chaque élément
+     	 * Ajout des éléments sur l'application
      	 */
          pan.add(retour);
          pan.add(lbId);
@@ -149,8 +149,9 @@ public class ajouter extends JFrame implements ActionListener{
 	 }
 
 	 /**
-		 * Méthode qui verifie que tout les champs sont remplis puis appelle la methode d'ajout d'un utilisateur en placant les cahmps en parametres
-		 */
+  	 * Méthode qui vérifie que tout les champs sont remplis puis les rentres en parametre dans la méthode ajoutUtil()
+  	 */
+      
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		 if (e.getSource()== retour)
